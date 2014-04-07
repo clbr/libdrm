@@ -18,7 +18,7 @@
 #  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 #  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.61])
 AC_INIT([libdrm],
         [2.4.52],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=DRI],
@@ -259,9 +259,9 @@ AM_CONDITIONAL([BUILD_MANPAGES], [test "x$XSLTPROC" != "x" -a "x$MANS" != "xno"]
 # check for offline man-pages stylesheet
 AC_MSG_CHECKING([for docbook manpages stylesheet])
 MANPAGES_STYLESHEET="http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl"
-AC_PATH_PROGS_FEATURE_CHECK([XSLTPROC_TMP], [xsltproc],
-                            AS_IF([`"$ac_path_XSLTPROC_TMP" --nonet "$MANPAGES_STYLESHEET" > /dev/null 2>&1`],
-                                  [HAVE_MANPAGES_STYLESHEET=yes]))
+#AC_PATH_PROGS_FEATURE_CHECK([XSLTPROC_TMP], [xsltproc],
+#                           AS_IF([`"$ac_path_XSLTPROC_TMP" --nonet "$MANPAGES_STYLESHEET"  > /dev/null 2>&1`],
+#                                  [HAVE_MANPAGES_STYLESHEET=yes]))
 if test "x$HAVE_MANPAGES_STYLESHEET" = "xyes"; then
         AC_SUBST(MANPAGES_STYLESHEET)
         AC_MSG_RESULT([yes])
